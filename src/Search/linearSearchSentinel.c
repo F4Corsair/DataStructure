@@ -20,7 +20,7 @@ int search(int *list, int size, int key)
 int main(void)
 {
     // you must prepare list (or allocate) which has 1 free space for sentinel
-    int numbers[9] = {15, 18, 18, 23, 39, 57, 68, 72}; // numbers must be sorted in ascending order
+    int numbers[9] = {15, 18, 18, 23, 39, 57, 68, 72}; // you don't need to sort
     int searchNum;
 
     printf("Number to Search : ");
