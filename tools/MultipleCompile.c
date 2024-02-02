@@ -18,6 +18,7 @@ int main(void)
         FileName[i] = FileName[i - 1] + sizeof(char) * STRING_BUFFER;
     }
     puts("=MultipleCompile.bat Generator=");
+    puts("!!! Do Not enter EXTENSION !!!");
     puts(">input file names[input nothing to end]");
     while (fileCnt < MAX_FILE_CNT)
     {
@@ -55,7 +56,7 @@ int main(void)
     strcat(batName, outFileName);
     strcat(batName, ".bat");
     FILE *fp = fopen(batName, "w");
-    fprintf(fp, "gcc ");
+    fprintf(fp, "@echo off\ngcc ");
     for (int i = 0; i < fileCnt; i++)
     {
         fprintf(fp, ".\\%s.c ", FileName[i]);
