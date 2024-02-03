@@ -1,6 +1,5 @@
 *.code-workspace
 memo.txt
 *.exe
-*.bat
 *.json
 *.o
