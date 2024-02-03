@@ -2,4 +2,5 @@
 memo.txt
 *.exe
 *.json
+!tasks.json
 *.o

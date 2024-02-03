@@ -1,0 +1,94 @@
+{
+    "tasks": [
+        {
+            "label": "compile",
+            "type": "cppbuild",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "-c",
+                "${fileDirname}\\*.c",
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": "$gcc",
+        },
+        {
+            "label": "link",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "${fileDirname}\\*.o",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}",
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": "$gcc",
+        },
+        {
+            "label": "execute",
+            "type": "shell",
+            "command":"./${fileBasenameNoExtension}.exe",
+            "args": [
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "options": {
+                "cwd": "${fileDirname}"
+            }
+        },
+        {
+            "label": "Build",
+            "dependsOrder": "sequence",
+            "dependsOn": ["compile", "link","execute"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "Build before Launch",
+            "dependsOrder": "sequence",
+            "dependsOn": ["compile", "link"],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+        }
+        // {
+        //     "type": "cppbuild",
+        //     "label": "C/C++: gcc.exe build active file",
+        //     "command": "gcc",
+        //     "args": [
+        //         "-fdiagnostics-color=always",
+        //         "-g",
+        //         "${file}",
+        //         "-o",
+        //         "${fileDirname}\\${fileBasenameNoExtension}"
+        //     ],
+        //     "options": {
+        //         "cwd": "${fileDirname}"
+        //     },
+        //     "problemMatcher": [
+        //         "$gcc"
+        //     ],
+        //     "group": {
+        //         "kind": "build",
+        //         "isDefault": false
+        //     },
+        //     "detail": "Default Build Option"
+        // },
+    ],
+    "version": "2.0.0"
+}
