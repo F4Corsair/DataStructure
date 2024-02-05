@@ -54,4 +54,5 @@ int main(void)
     polynomial_sub(terms, &avail, startA, finishA, startA, finishA, &startD, &finishD);
     puts("\nA - A");
     polynomial_print(terms, startD, finishD);
+    puts("");
 }
