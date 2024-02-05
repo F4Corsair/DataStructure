@@ -24,6 +24,8 @@ Term *transpose(Term *a);
 
 Term *fastTranspose(Term *a);
 
-// multiplication
+void copyMatrix(const Term *src, Term *dest);
+
+Term *multiplicateMatrix(const Term *_a, const Term *_b);
 
 #endif
