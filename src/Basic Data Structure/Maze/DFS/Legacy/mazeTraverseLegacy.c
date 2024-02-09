@@ -142,7 +142,7 @@ int main(void)
 {
     int mazeRow, mazeCol;
     int startRow, startCol, endRow, endCol;
-    FILE *fp = fopen("maze2.txt", "r");
+    FILE *fp = fopen("../../Map/maze2.txt", "r");
     fscanf(fp, "%d %d", &mazeRow, &mazeCol);
     int **mazeMap = malloc(sizeof(int *) * (mazeRow + 2));
     int **mazeMark = malloc(sizeof(int *) * (mazeRow + 2));
