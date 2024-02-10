@@ -4,7 +4,7 @@
 
 int main(void)
 {
-    Maze *maze = mazeFileRead("../Map/maze2.txt");
+    Maze *maze = mazeFileRead("../Map/maze4.txt");
     puts("[Maze]");
     mazePrint(maze);
 

@@ -116,7 +116,7 @@ void mazePathMake(TraceStack *ts, int **map)
 {
     for (int i = 0; i < ts->top; i++)
     {
-        map[ts->stack[i].row][ts->stack[i].row] = 2;
+        map[ts->stack[i].row][ts->stack[i].col] = 2;
     }
 }
 
