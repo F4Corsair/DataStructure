@@ -14,17 +14,25 @@ int main(void)
     listAppendFront(&list, 40);
     listAppendRear(&list, 50);
     listPrint(&list);
+    puts("Invert");
+    listPrintInLine(invertList(&list));
+    puts("Concatenation");
+    listPrintInLine(concatList(&list, &list));
     listTerminate(&list);
 
     // use head node pointer directly
     Node *head = nodeAppendFront(NULL, 10);
     head = nodeAppendFront(head, 20);
-    nodeAppendRear(head, 30);
+    head = nodeAppendRear(head, 30);
     int num;
     head = nodePopFront(head, &num);
     printf("Pop : %d\n", num);
     head = nodeAppendFront(head, 40);
-    nodeAppendRear(head, 50);
+    head = nodeAppendRear(head, 50);
     nodePrint(head);
+    puts("Invert");
+    nodePrintInLine(invertNodeList(head));
+    puts("Concatenation");
+    nodePrintInLine(concatNodeList(head, head));
     nodeTerminate(head);
 }

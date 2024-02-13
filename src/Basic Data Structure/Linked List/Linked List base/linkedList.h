@@ -21,7 +21,7 @@ Node *nodeAppendFront(Node *node, const int num);
 
 void listAppendRear(LinkedList *list, const int num);
 
-void *nodeAppendRear(Node *head, const int num);
+Node *nodeAppendRear(Node *head, const int num);
 
 int listPopFront(LinkedList *list);
 
@@ -29,7 +29,19 @@ Node *nodePopFront(Node *head, int *num);
 
 void listPrint(LinkedList *list);
 
+void listPrintInLine(LinkedList *list);
+
 void nodePrint(Node *head);
+
+void nodePrintInLine(Node *head);
+
+LinkedList *concatList(LinkedList *listA, LinkedList *listB);
+
+Node *concatNodeList(Node *headA, Node *headB);
+
+LinkedList *invertList(LinkedList *list);
+
+Node *invertNodeList(Node *head);
 
 void listTerminate(LinkedList *list);
 
