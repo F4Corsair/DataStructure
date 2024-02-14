@@ -14,7 +14,11 @@ Term *polyInit();
 
 void polyAddTerm(Term *head, int coef, int exponent);
 
+Term *polyAdd(Term *headA, Term *headB);
+
 void polyPrint(Term *head);
+
+void polyPrintInline(Term *head);
 
 void polyTerminate(Term *head);
 

@@ -39,6 +39,40 @@ void polyAddTerm(Term *head, int coef, int exponent)
     newTerm->exponent = exponent;
 }
 
+Term *polyAdd(Term *headA, Term *headB)
+{
+    Term *newHead = polyInit();
+    Term *ptrA = headA->next;
+    Term *ptrB = headB->next;
+    int flag = 0;
+    do
+    {
+        switch (intCmp(ptrA->exponent, ptrB->exponent))
+        {
+        case 1:
+            polyAddTerm(newHead, ptrA->coef, ptrA->exponent);
+            ptrA = ptrA->next;
+            break;
+        case 0:
+            if (ptrA->exponent == HEADER_EXPONENT)
+            {
+                flag = 1;
+            }
+            else
+            {
+                polyAddTerm(newHead, ptrA->coef + ptrB->coef, ptrA->exponent);
+                ptrA = ptrA->next;
+                ptrB = ptrB->next;
+            }
+            break;
+        case -1:
+            polyAddTerm(newHead, ptrB->coef, ptrB->exponent);
+            ptrB = ptrB->next;
+        }
+    } while (!flag);
+    return newHead;
+}
+
 void polyPrint(Term *head)
 {
     Term *now = head->next;
@@ -59,6 +93,12 @@ void polyPrint(Term *head)
         now = now->next;
     }
     puts("");
+}
+
+void polyPrintInline(Term *head)
+{
+    polyPrint(head);
+    polyTerminate(head);
 }
 
 void polyTerminate(Term *head)
