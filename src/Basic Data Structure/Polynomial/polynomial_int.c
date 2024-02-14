@@ -30,7 +30,7 @@ void polynomial_print(Polynomial *terms, int start, int finish)
     if (exp == 1)
         printf("%3dx ", terms[start].coef);
     else if (exp == 0)
-        printf("%3d ", terms[start].coef);
+        printf("%5d ", terms[start].coef);
     else
         printf("%3dx^%-d ", terms[start].coef, exp);
     for (int i = start + 1; i <= finish; i++)
@@ -39,7 +39,7 @@ void polynomial_print(Polynomial *terms, int start, int finish)
         if (exp == 1)
             printf("%+3dx ", terms[i].coef);
         else if (exp == 0)
-            printf("%+3d ", terms[i].coef);
+            printf("%+5d ", terms[i].coef);
         else
             printf("%+3dx^%-d ", terms[i].coef, exp);
     }
