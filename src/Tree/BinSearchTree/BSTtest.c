@@ -19,4 +19,5 @@ int main(void)
     printf("Recur : ");
     inorderPrintRecur(root);
     printf("\nIter : ");
+    inorderPrintIter(root);
 }

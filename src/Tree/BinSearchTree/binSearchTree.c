@@ -4,8 +4,44 @@
 
 void linkedListInit(LinkedList *list)
 {
+    list->head = NULL;
+    list->tail = NULL;
 }
 
+void listAppendFront(LinkedList *list, TreeNode data)
+{
+    LinkedNode *newNode = malloc(sizeof(LinkedNode));
+    if (list->head == NULL)
+        list->tail = newNode;
+    newNode->data = data;
+    newNode->next = list->head;
+    list->head = newNode;
+}
+
+void listAppendRear(LinkedList *list, TreeNode data)
+{
+    LinkedNode *newNode = malloc(sizeof(LinkedNode));
+    newNode->data = data;
+    newNode->next = NULL;
+    if (list->tail != NULL)
+        list->tail->next = newNode;
+    list->tail = newNode;
+    if (list->head == NULL)
+        list->head = newNode;
+    else if (list->head->next == NULL)
+        list->head->next = newNode;
+}
+
+TreeNode listPopFront(LinkedList *list)
+{
+    LinkedNode *temp = list->head;
+    TreeNode data = temp->data;
+    list->head = temp->next;
+    if (list->head == NULL)
+        list->tail = NULL;
+    free(temp);
+    return data;
+}
 // todo : listAppendRear(Q+), listPopFront(Q-), listTerminate
 // nodeAppendFront(sPush), nodePopFront(sPop)
 
@@ -79,5 +115,20 @@ void inorderPrintRecur(TreeNode *root)
         inorderPrintRecur(root->lChild);
         printf("%3d ", root->key);
         inorderPrintRecur(root->rChild);
+    }
+}
+
+void inorderPrintIter(TreeNode *root)
+{
+    TreeNode ptr;
+    LinkedList stack;
+    linkedListInit(&stack);
+    listAppendFront(&stack, *root);
+    while (stack.head != NULL) // loop until stack goes empty
+    {
+        ptr = listPopFront(&stack);           // stack pop
+        listAppendFront(&stack, *ptr.lChild); // stack push
+        printf("%3d ", root->key);
+        listAppendFront(&stack, *ptr.rChild); // stack push
     }
 }

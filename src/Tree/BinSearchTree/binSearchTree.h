@@ -9,7 +9,7 @@ typedef struct _TreeNode
 
 typedef struct _LinkNode
 {
-    int num;
+    TreeNode data;
     struct _LinkNode *next;
 } LinkedNode;
 
@@ -19,6 +19,14 @@ typedef struct
     LinkedNode *tail;
 } LinkedList;
 
+void linkedListInit(LinkedList *list);
+
+void listAppendFront(LinkedList *list, TreeNode data);
+
+void listAppendRear(LinkedList *list, TreeNode data);
+
+TreeNode listPopFront(LinkedList *list);
+
 TreeNode *binTreeSearch(TreeNode *root, int key);
 
 TreeNode *_treeInsertSearch(TreeNode *root, int key);
@@ -26,5 +34,7 @@ TreeNode *_treeInsertSearch(TreeNode *root, int key);
 TreeNode *insertBinTree(TreeNode *root, int key);
 
 void inorderPrintRecur(TreeNode *root);
+
+void inorderPrintIter(TreeNode *root);
 
 #endif
