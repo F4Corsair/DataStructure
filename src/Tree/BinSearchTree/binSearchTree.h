@@ -25,7 +25,7 @@ void listAppendFront(LinkedList *list, TreeNode data);
 
 void listAppendRear(LinkedList *list, TreeNode data);
 
-TreeNode listPopFront(LinkedList *list);
+TreeNode *listPopFront(LinkedList *list);
 
 TreeNode *binTreeSearch(TreeNode *root, int key);
 

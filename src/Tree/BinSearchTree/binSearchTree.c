@@ -12,7 +12,9 @@ void listAppendFront(LinkedList *list, TreeNode data)
 {
     LinkedNode *newNode = malloc(sizeof(LinkedNode));
     if (list->head == NULL)
+    {
         list->tail = newNode;
+    }
     newNode->data = data;
     newNode->next = list->head;
     list->head = newNode;
@@ -32,10 +34,13 @@ void listAppendRear(LinkedList *list, TreeNode data)
         list->head->next = newNode;
 }
 
-TreeNode listPopFront(LinkedList *list)
+TreeNode *listPopFront(LinkedList *list)
 {
+    if (list->head == NULL)
+        return NULL;
     LinkedNode *temp = list->head;
-    TreeNode data = temp->data;
+    TreeNode *data = malloc(sizeof(TreeNode));
+    *data = temp->data;
     list->head = temp->next;
     if (list->head == NULL)
         list->tail = NULL;
@@ -120,15 +125,21 @@ void inorderPrintRecur(TreeNode *root)
 
 void inorderPrintIter(TreeNode *root)
 {
-    TreeNode ptr;
-    LinkedList stack;
-    linkedListInit(&stack);
-    listAppendFront(&stack, *root);
-    while (stack.head != NULL) // loop until stack goes empty
+    TreeNode *ptr = root;
+    LinkedList *stack = malloc(sizeof(LinkedList));
+    linkedListInit(stack);
+    while (1)
     {
-        ptr = listPopFront(&stack);           // stack pop
-        listAppendFront(&stack, *ptr.lChild); // stack push
-        printf("%3d ", root->key);
-        listAppendFront(&stack, *ptr.rChild); // stack push
+        // at start, stack all node until we reach leftmost node
+        for (; ptr != NULL; ptr = ptr->lChild)
+            listAppendFront(stack, *ptr);
+        ptr = listPopFront(stack); // reached NULL node, so we pop once
+        if (ptr == NULL)           // if stack is empty, break loop
+            break;
+        printf("%3d ", ptr->key);
+        // if we are on terminal node, we doesn't append anymore, pop from stack (go to parent node)
+        // else, we are in parent node of some left child. we try to reach rChild & stack lChild if exits
+        ptr = ptr->rChild;
     }
+    free(stack);
 }

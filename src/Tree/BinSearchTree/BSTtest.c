@@ -20,4 +20,5 @@ int main(void)
     inorderPrintRecur(root);
     printf("\nIter : ");
     inorderPrintIter(root);
+    puts("\n");
 }
