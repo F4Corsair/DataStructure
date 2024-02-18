@@ -37,4 +37,12 @@ void inorderPrintRecur(TreeNode *root);
 
 void inorderPrintIter(TreeNode *root);
 
+void preorderPrintRecur(TreeNode *root);
+
+void preorderPrintIter(TreeNode *root);
+
+void postorderPrintRecur(TreeNode *root);
+
+void levelorderPrint(TreeNode *root);
+
 #endif

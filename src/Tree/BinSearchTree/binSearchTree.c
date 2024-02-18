@@ -12,9 +12,7 @@ void listAppendFront(LinkedList *list, TreeNode data)
 {
     LinkedNode *newNode = malloc(sizeof(LinkedNode));
     if (list->head == NULL)
-    {
         list->tail = newNode;
-    }
     newNode->data = data;
     newNode->next = list->head;
     list->head = newNode;
@@ -36,6 +34,9 @@ void listAppendRear(LinkedList *list, TreeNode data)
 
 TreeNode *listPopFront(LinkedList *list)
 {
+    // we need to sign list is empty. in this program, i'll return NULL value to sign it
+    // so this function returns pointer value, not raw struct
+    // be caution with freeing return value after use it
     if (list->head == NULL)
         return NULL;
     LinkedNode *temp = list->head;
@@ -47,8 +48,6 @@ TreeNode *listPopFront(LinkedList *list)
     free(temp);
     return data;
 }
-// todo : listAppendRear(Q+), listPopFront(Q-), listTerminate
-// nodeAppendFront(sPush), nodePopFront(sPop)
 
 // this is meaningless, but if you have data element except key value, it will be useful
 TreeNode *binTreeSearch(TreeNode *root, int key)
@@ -126,6 +125,7 @@ void inorderPrintRecur(TreeNode *root)
 void inorderPrintIter(TreeNode *root)
 {
     TreeNode *ptr = root;
+    TreeNode *next;
     LinkedList *stack = malloc(sizeof(LinkedList));
     linkedListInit(stack);
     while (1)
@@ -139,7 +139,79 @@ void inorderPrintIter(TreeNode *root)
         printf("%3d ", ptr->key);
         // if we are on terminal node, we doesn't append anymore, pop from stack (go to parent node)
         // else, we are in parent node of some left child. we try to reach rChild & stack lChild if exits
-        ptr = ptr->rChild;
+        next = ptr->rChild;
+        free(ptr); // we allocated ptr data at listPopFront -> need to be free
+        ptr = next;
     }
     free(stack);
+}
+
+void preorderPrintRecur(TreeNode *root)
+{
+    if (root)
+    {
+        printf("%3d ", root->key);
+        preorderPrintRecur(root->lChild);
+        preorderPrintRecur(root->rChild);
+    }
+}
+
+void preorderPrintIter(TreeNode *root)
+{
+    TreeNode *ptr = root;
+    TreeNode *next;
+    LinkedList *stack = malloc(sizeof(LinkedList));
+    linkedListInit(stack);
+    while (1)
+    {
+        for (; ptr != NULL; ptr = ptr->lChild)
+        {
+            listAppendFront(stack, *ptr);
+            printf("%3d ", ptr->key);
+        }
+        ptr = listPopFront(stack);
+        if (ptr == NULL)
+            break;
+        next = ptr->rChild;
+        free(ptr);
+        ptr = next;
+    }
+    free(stack);
+}
+
+void postorderPrintRecur(TreeNode *root)
+{
+    if (root)
+    {
+        postorderPrintRecur(root->lChild);
+        postorderPrintRecur(root->rChild);
+        printf("%3d ", root->key);
+    }
+}
+
+// postorderPrintIter : skipped (too hard to implement)
+
+void levelorderPrint(TreeNode *root)
+{
+    if (!root)
+        return;
+    TreeNode *ptr;
+    LinkedList *q;
+    linkedListInit(q);
+    listAppendRear(q, *root);
+    while (1)
+    {
+        ptr = listPopFront(q);
+        if (ptr)
+        {
+            printf("%3d ", ptr->key);
+            if (ptr->lChild)
+                listAppendRear(q, *ptr->lChild);
+            if (ptr->rChild)
+                listAppendRear(q, *ptr->rChild);
+            free(ptr);
+        }
+        else
+            break;
+    }
 }

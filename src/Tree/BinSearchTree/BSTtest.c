@@ -20,5 +20,18 @@ int main(void)
     inorderPrintRecur(root);
     printf("\nIter : ");
     inorderPrintIter(root);
-    puts("\n");
+
+    puts("\n[Preorder Traverse]");
+    printf("Recur : ");
+    preorderPrintRecur(root);
+    printf("\nIter : ");
+    preorderPrintIter(root);
+
+    puts("\n[Postorder Traverse]");
+    printf("Recur : ");
+    postorderPrintRecur(root);
+
+    puts("\n[LevelOrder Traverse]");
+    levelorderPrint(root);
+    puts("");
 }
