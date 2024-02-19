@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include "threadedBST.h"
 
+/* in linked representation of binary tree, there are more null links than actual pointers
+ / we replace the null links by pointers to other nodes by following rules
+ / 1. if ptr->leftChild == NULL -> replace it with a pointer to the node
+ / that would be visited before ptr in an inorder traversal
+ / 2. if ptr->rightChild == NULL -> replace it wit a pointer to the node
+ / that would be visited after ptr in an inorder traversal
+*/
+
 TreeNode *initThreadedBST()
 {
     TreeNode *root = malloc(sizeof(TreeNode));
@@ -44,6 +52,8 @@ void inodrderTraversePrint(TreeNode *root)
 
 void _insertTbstRight(TreeNode *parent, TreeNode *newNode)
 {
+    // insert newNode as leftChild of parent node
+    // parent's leftChild subtree will be changed into newNode's leftChild
     TreeNode *temp;
     newNode->rChild = parent->rChild;
     newNode->rThreaded = parent->rThreaded;
@@ -62,6 +72,8 @@ void _insertTbstRight(TreeNode *parent, TreeNode *newNode)
 
 void _insertTbstLeft(TreeNode *parent, TreeNode *newNode)
 {
+    // insert newNode as rightChild of parent node
+    // parent's rightChild subtree will be changed into newNode's rightChild
     TreeNode *temp;
     newNode->lChild = parent->lChild;
     newNode->lThreaded = parent->lThreaded;
@@ -71,6 +83,7 @@ void _insertTbstLeft(TreeNode *parent, TreeNode *newNode)
     parent->lThreaded = 0;
     if (!newNode->lThreaded)
     {
+        // find node that would be visited before newNode in an inorder traversal
         temp = newNode->lChild;
         if (!temp->rThreaded)
             while (!temp->rThreaded)
@@ -105,22 +118,20 @@ TreeNode *_treeInsertSearch(TreeNode *root, int key)
 void insertThreadedBST(TreeNode *root, int key)
 {
     TreeNode *newNode;
-    // find position
-    // if overlap -> return without malloc
-    // if not, malloc and add link and data
     if (root->lThreaded)
     {
+        // initial node will be root's leftChild regardless of its key value
         newNode = malloc(sizeof(TreeNode));
         newNode->key = key;
         _insertTbstLeft(root, newNode);
         return;
     }
     TreeNode *parentNode = _treeInsertSearch(root, key);
-    if (parentNode)
+    if (parentNode) // same key value in tree is not allowed & skip memory allocation
     {
         newNode = malloc(sizeof(TreeNode));
         newNode->key = key;
-        if (key < parentNode->key)
+        if (parentNode->key > key)
             _insertTbstLeft(parentNode, newNode);
         else
             _insertTbstRight(parentNode, newNode);
