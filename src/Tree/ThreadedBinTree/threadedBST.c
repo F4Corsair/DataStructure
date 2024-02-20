@@ -3,12 +3,12 @@
 #include "threadedBST.h"
 
 /* in linked representation of binary tree, there are more null links than actual pointers
- / we replace the null links by pointers to other nodes by following rules
- / 1. if ptr->leftChild == NULL -> replace it with a pointer to the node
- / that would be visited before ptr in an inorder traversal
- / 2. if ptr->rightChild == NULL -> replace it wit a pointer to the node
- / that would be visited after ptr in an inorder traversal
-*/
+ * we replace the null links by pointers to other nodes by following rules
+ * 1. if ptr->leftChild == NULL -> replace it with a pointer to the node
+ * that would be visited before ptr in an inorder traversal
+ * 2. if ptr->rightChild == NULL -> replace it wit a pointer to the node
+ * that would be visited after ptr in an inorder traversal
+ */
 
 TreeNode *initThreadedBST()
 {
