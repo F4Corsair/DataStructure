@@ -1,0 +1,10 @@
+Kim 1 80
+Lee 2 95
+Park 3 85
+Kho 4 90
+Kang 5 50
+Song 6 70
+Ryu 7 100
+Min 8 45
+Choi 9 90
+Na 10 30
