@@ -1,0 +1,9 @@
+8 5
+kim 110 park 115 song 125 choi 132 lee 140
+shim 100 kho 118 Min 122 Hong 134 Kong 147
+Cho 105 Kang 122 Min 144 Kim 150 Choi 155
+Na 135 Lee 144 Park 146 Lee 148 Kim 152
+Bong 118 Kong 123 Oh 131 Jung 136 Cha 148
+Lee 122 Kim 128  Won 135 Sung 140 Pyo 145
+Ji 111 Ryu 122 Han 133 Lee 144 Keum 155
+Eun 90 Dong 115 Jin 125 Kim 135 Choo 145
