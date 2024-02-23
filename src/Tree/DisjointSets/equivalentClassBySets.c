@@ -46,4 +46,5 @@ int main(void)
 
     // free heap data
     setTerminate(sets);
+    free(visited);
 }

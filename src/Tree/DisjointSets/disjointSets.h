@@ -7,8 +7,6 @@ typedef struct
     int size;
 } Sets;
 
-// setInit, Union, rootFind, collapseFind
-
 Sets *setInitialize(int size);
 
 void setTerminate(Sets *set);
