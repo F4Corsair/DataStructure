@@ -9,4 +9,14 @@ typedef struct
 
 // setInit, Union, rootFind, collapseFind
 
+Sets *setInitialize(int size);
+
+void setTerminate(Sets *set);
+
+void setUnion(Sets *sets, int i, int j);
+
+int findRoot(Sets *sets, int i);
+
+int collapseFindRoot(Sets *sets, int i);
+
 #endif
