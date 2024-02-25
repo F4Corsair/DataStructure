@@ -79,7 +79,7 @@ void strHashTablePrint(char ***table, int bucketSize, int slotSize)
             if (table[i][j] == NULL)
                 break;
             else
-                printf("%10s", table[i][j]);
+                printf("%*s", STR_SIZE, table[i][j]);
         }
         puts("");
     }
