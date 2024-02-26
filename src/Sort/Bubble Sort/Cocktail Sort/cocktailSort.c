@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 // Cocktail Sort is more optimized version of bubble sort
-// repeat going backward & toward, sort it faster than bubble sort (but still O(n^2))
+// repeat going backward & toward, sort it faster than bubble sort
+// time complexity : O(n^2) & stable
 
 void swap(int *list, int a, int b)
 {

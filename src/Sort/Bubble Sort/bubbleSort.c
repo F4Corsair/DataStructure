@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// time complexity : O(n^2) & stable
+
 void swap(int *list, int a, int b)
 {
     int temp = list[a];
