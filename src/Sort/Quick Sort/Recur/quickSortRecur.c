@@ -23,7 +23,7 @@ void _qSortAscRecur(int *list, int left, int right)
     {
         while (list[lptr] < pivot)
             lptr++;
-        while (list[rptr] > pivot)
+        while (pivot < list[rptr])
             rptr--;
         if (lptr <= rptr)
         {
@@ -46,7 +46,7 @@ void _qSortDescRecur(int *list, int left, int right)
     {
         while (list[lptr] > pivot)
             lptr++;
-        while (list[rptr] < pivot)
+        while (pivot > list[rptr])
             rptr--;
         if (lptr <= rptr)
         {
