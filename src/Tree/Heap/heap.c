@@ -5,11 +5,15 @@
 
 /* Heaps are frequently used to implement priority queues
  * Priority Queue : queue that element to be deleted is one with highest(or lowest) priority (=placed on root node)
- * Max(Min) Heap : complete binary tree that is also a min(max) tree
+ * Max(Min) Heap : complete binary tree that is also a max(min) tree
+ * max heap -> maximum value pop first / min heap -> minimum value pop first
  * Heap Insertion : since heap is complete binary, new item will placed in last index of tree at first
  * and that item traverses to appropriate place by bubbling up(compare-swap procedure)
  * Heap Deletion : if item taken from root of the heap, then, tree needs to be restructed (heap after deletion violate form of complete binary tree)
  * to reconstruct it, first, we take last index element to root. and re-position it by bubbling swap until it reaches appropriate place
+ * Notice : if heap element index starts from 1, you can easily access to parent / child index by just multiply(or *2+1) or divide by 2
+ * if you want to set first index to 0, you need to use another parent / child index access method
+ * if current index is "i", then its parent index is "(i-1)/2". its childs index is "i*2+1" and "i*2+2"
  * Time complexity of Insertion & Deletion of heap are O(logn)
  */
 
