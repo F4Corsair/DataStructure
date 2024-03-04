@@ -22,7 +22,7 @@ int main(void)
 
     printList(adjList);
 
-    // degree check about directed graph
+    // degree check about directed graph - linked lists representation
     puts("\n[Indegree]");
     for (int i = 0; i < adjList->size; i++)
         printf("Vertex[%d] : %-3d ", i, adjListIndegree(adjList, i));
@@ -44,7 +44,7 @@ int main(void)
 
     adjMatrixPrint(adjMatrix);
 
-    // degree check about directed graph
+    // degree check about directed graph - matrix representation
     puts("\n[Indegree]");
     for (int i = 0; i < adjMatrix->size; i++)
         printf("Vertex[%d] : %-3d ", i, adjMatrixIndegree(adjMatrix, i));

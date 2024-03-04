@@ -19,13 +19,6 @@ typedef struct
     int **matrix;
 } AdjMatrix;
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "degreeCheck.h"
-
-// directed graph. 2 way representation -> adjacency matrix and adjacency linked lists
-// find each vertices indegree and outdegree of each representation
-
 AdjLists *adjListsInit(int size);
 
 void adjListTerminate(AdjLists *adj);
