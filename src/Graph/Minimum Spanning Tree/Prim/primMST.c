@@ -113,6 +113,11 @@ int main(void)
         visited[i] = 0;
     int edgeNum = 0, availPath, startVertex, minCost;
 
+    // headAdjList is list to point available & cheapest vertex connection
+    Node **headAdjList = malloc(sizeof(Node *) * adjList->size);
+    for (int i = 0; i < adjList->size; i++)
+        headAdjList[i] = adjList->list[i];
+
     printf("Input start vertex: ");
     scanf(" %d", &startVertex);
     visited[startVertex] = 1;
@@ -128,6 +133,10 @@ int main(void)
         // from seeked cost, find min value and let it add new path
         // => print edge & record visited & update startvertex
 
+        // 1. seek headAdjList 2. if visited[head], head = head->next;
+        // 3. if unvisited, update minCost value & iter about all headList (also, availPath++)
+        // 4. if loop done, let it add new path
+
         if (!availPath)
             break; // failed to find route
         else
@@ -138,5 +147,7 @@ int main(void)
         }
     }
 
+    // free heap data
+    free(headAdjList);
     adjListTerminate(adjList);
 }
