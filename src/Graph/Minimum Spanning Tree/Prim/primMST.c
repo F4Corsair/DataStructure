@@ -46,7 +46,6 @@ void adjListTerminate(AdjLists *adj)
 void adjListAppend(AdjLists *adj, int from, int toward, int cost)
 {
     Node *newNode = malloc(sizeof(Node));
-    newNode->next = NULL;
     newNode->cost = cost;
     newNode->toward = toward;
 
