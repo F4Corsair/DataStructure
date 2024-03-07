@@ -123,7 +123,7 @@ int main(void)
 
     // search all possible path from visited vertex is unefficient
     // so, i make head pointer list of AdjList to find available & min cost faster
-    while (edgeNum < vertexNum)
+    while (edgeNum < vertexNum - 1) // # of edge of MST = # of vertex - 1
     {
         availPath = 0;
 
@@ -162,7 +162,10 @@ int main(void)
         }
 
         if (!availPath)
-            break; // failed to find route
+        {
+            printf("Failed to find route\n");
+            break;
+        }
         else
         {
             // record visited node (lowest cost node) & print
@@ -174,5 +177,6 @@ int main(void)
 
     // free heap data
     free(headAdjList);
+    free(visited);
     adjListTerminate(adjList);
 }
