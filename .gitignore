@@ -4,3 +4,4 @@ memo.txt
 *.json
 !tasks.json
 *.o
+*.out
