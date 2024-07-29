@@ -1,4 +1,4 @@
-CC = gcc -g
+CC = gcc
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
 OUTS = $(wildcard *.out)

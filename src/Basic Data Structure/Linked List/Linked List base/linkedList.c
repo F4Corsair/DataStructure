@@ -214,8 +214,9 @@ Node *invertNodeList(Node *head)
 void listTerminate(LinkedList *list)
 {
     Node *now = list->head;
-    list->head = NULL;
-    Node *next = now->next;
+    Node *next = NULL;
+    if(now != NULL)
+        next = now->next;
     while (now)
     {
         free(now);
@@ -229,8 +230,9 @@ void listTerminate(LinkedList *list)
 void nodeTerminate(Node *head)
 {
     Node *now = head;
-    head = NULL;
-    Node *next = now->next;
+    Node *next;
+    if(now != NULL)
+        next = now->next;
     while (now)
     {
         free(now);

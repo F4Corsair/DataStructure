@@ -19,7 +19,8 @@ void stackTerminate(Node *top)
 
 int main(void)
 {
-    Node *stackTop;
+    Node *stackTop = NULL;
+
     stackTop = stackPush(stackTop, 10);
     stackTop = stackPush(stackTop, 20);
     stackTop = stackPush(stackTop, 30);
