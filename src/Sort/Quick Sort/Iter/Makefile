@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 quickSortIter.out : quickSortIter.o linkedStack.o
 	$(CC) -o $@ $^
 
-quickSortIter.o : quickSortIter.c
+quickSortIter.o : quickSortIter.c linkedStack.h
 	$(CC) -c -o $@ $<
 
 linkedStack.o : linkedStack.c linkedStack.h

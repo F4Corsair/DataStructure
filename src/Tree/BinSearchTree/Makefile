@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 BSTtest.out : BSTtest.o binSearchTree.o
 	$(CC) -o $@ $^
 
-BSTtest.o : BSTtest.c
+BSTtest.o : BSTtest.c binSearchTree.h
 	$(CC) -o $@ $< -c
 
 binSearchTree.o : binSearchTree.c binSearchTree.h

@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 classHeightSort.out : classHeightSort.o tournamentTree.o
 	$(CC) -o $@ $^
 
-classHeightSort.o : classHeightSort.c
+classHeightSort.o : classHeightSort.c tournamentTree.h
 	$(CC) -o $@ $< -c
 
 tournamentTree.o : tournamentTree.c tournamentTree.h

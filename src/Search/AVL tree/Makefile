@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 testAVL.out :testAVL.o avlTree.o
 	$(CC) -o $@ $^
 
-testAVL.o : testAVL.c
+testAVL.o : testAVL.c avlTree.h
 	$(CC) -c -o $@ $<
 
 avlTree.o : avlTree.c avlTree.h

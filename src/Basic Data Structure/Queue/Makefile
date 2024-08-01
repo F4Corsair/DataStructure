@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 intCircularQueueTest.out :intCircularQueueTest.o intCircularQueue.o
 	$(CC) -o $@ $^
 
-intCircularQueueTest.o : intCircularQueueTest.c
+intCircularQueueTest.o : intCircularQueueTest.c intCircularQueue.h
 	$(CC) -c -o $@ $<
 
 intCircularQueue.o : intCircularQueue.c intCircularQueue.h

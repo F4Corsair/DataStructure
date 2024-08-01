@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 polynomialIntTest.out :polynomialIntTest.o polynomial_int.o
 	$(CC) -o $@ $^
 
-polynomialIntTest.o : polynomialIntTest.c
+polynomialIntTest.o : polynomialIntTest.c polynomial_int.h
 	$(CC) -c -o $@ $<
 
 polynomial_int.o : polynomial_int.c polynomial_int.h

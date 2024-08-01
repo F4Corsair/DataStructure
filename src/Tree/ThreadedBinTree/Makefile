@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 threadedBSTtest.out : threadedBSTtest.o threadedBST.o
 	$(CC) -o $@ $^
 
-threadedBSTtest.o : threadedBSTtest.c
+threadedBSTtest.o : threadedBSTtest.c threadedBST.h
 	$(CC) -o $@ $< -c
 
 threadedBST.o : threadedBST.c threadedBST.h

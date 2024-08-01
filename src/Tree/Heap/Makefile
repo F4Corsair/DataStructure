@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 heapTest.out : heapTest.o heap.o
 	$(CC) -o $@ $^
 
-heapTest.o : heapTest.c
+heapTest.o : heapTest.c heap.h
 	$(CC) -o $@ $< -c
 
 heap.o : heap.c heap.h

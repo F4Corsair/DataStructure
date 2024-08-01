@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 chainingHashTest.out :chainingHashTest.o chainingHash.o
 	$(CC) -o $@ $^
 
-chainingHashTest.o : chainingHashTest.c
+chainingHashTest.o : chainingHashTest.c chainingHash.h
 	$(CC) -c -o $@ $<
 
 chainingHash.o : chainingHash.c chainingHash.h

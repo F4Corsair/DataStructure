@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 linearProbingHashTest.out :linearProbingHashTest.o linearProbingHash.o
 	$(CC) -o $@ $^
 
-linearProbingHashTest.o : linearProbingHashTest.c
+linearProbingHashTest.o : linearProbingHashTest.c linearProbingHash.h
 	$(CC) -c -o $@ $<
 
 linearProbingHash.o : linearProbingHash.c linearProbingHash.h

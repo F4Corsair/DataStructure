@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 linkedQueue.out :linkedQueue.o ../linkedList.o
 	$(CC) -o $@ $^
 
-linkedQueue.o : linkedQueue.c
+linkedQueue.o : linkedQueue.c ../linkedList.h
 	$(CC) -c -o $@ $<
 
 ../linkedList.o : ../linkedList.c ../linkedList.h

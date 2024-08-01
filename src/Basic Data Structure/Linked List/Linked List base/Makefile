@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 linkedListTest.out :linkedListTest.o linkedList.o
 	$(CC) -o $@ $^
 
-linkedListTest.o : linkedListTest.c
+linkedListTest.o : linkedListTest.c linkedList.h
 	$(CC) -c -o $@ $<
 
 linkedList.o : linkedList.c linkedList.h

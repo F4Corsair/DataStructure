@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 equivalentClassBySets.out : equivalentClassBySets.o disjointSets.o
 	$(CC) -o $@ $^
 
-equivalentClassBySets.o : equivalentClassBySets.c
+equivalentClassBySets.o : equivalentClassBySets.c disjointSets.h
 	$(CC) -o $@ $< -c
 
 disjointSets.o : disjointSets.c disjointSets.h

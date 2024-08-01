@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 mazeDFSTest.out :mazeDFSTest.o mazeTraverseDFS.o
 	$(CC) -o $@ $^
 
-mazeDFSTest.o : mazeDFSTest.c
+mazeDFSTest.o : mazeDFSTest.c mazeTraverseDFS.h
 	$(CC) -c -o $@ $<
 
 mazeTraverseDFS.o : mazeTraverseDFS.c mazeTraverseDFS.h

@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 intStackTest.out :intStackTest.o intStack.o
 	$(CC) -o $@ $^
 
-intStackTest.o : intStackTest.c
+intStackTest.o : intStackTest.c intStack.h
 	$(CC) -c -o $@ $<
 
 intStack.o : intStack.c intStack.h

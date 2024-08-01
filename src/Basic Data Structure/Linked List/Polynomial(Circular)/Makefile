@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 listPolyTest.out :listPolyTest.o circularListPolynomial.o
 	$(CC) -o $@ $^
 
-listPolyTest.o : listPolyTest.c
+listPolyTest.o : listPolyTest.c circularListPolynomial.h
 	$(CC) -c -o $@ $<
 
 circularListPolynomial.o : circularListPolynomial.c circularListPolynomial.h

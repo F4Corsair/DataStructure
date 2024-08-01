@@ -6,7 +6,7 @@ OUTS = $(wildcard *.out)
 sparseMatrixTest.out :sparseMatrixTest.o sparseMatrix.o
 	$(CC) -o $@ $^
 
-sparseMatrixTest.o : sparseMatrixTest.c
+sparseMatrixTest.o : sparseMatrixTest.c sparseMatrix.h
 	$(CC) -c -o $@ $<
 
 sparseMatrix.o : sparseMatrix.c sparseMatrix.h
